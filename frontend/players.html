@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Players Management</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>⚽ Academy</h2>
+      <a href="coach-dashboard.html">Dashboard</a>
+      <a href="players.html" class="active">Players</a>
+      <a href="performance.html">Performance</a>
+      <a href="login.html" onclick="logout()">Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Player Management</h1>
+          <p>Add, update, search and manage academy players.</p>
+        </div>
+        <div class="header-badge">Players Panel</div>
+      </div>
+
+      <section class="stats-container">
+        <div class="stat-card blue">
+          <span class="stat-icon">👥</span>
+          <h3>Total Players</h3>
+          <p id="playersCount">0</p>
+        </div>
+
+        <div class="stat-card green">
+          <span class="stat-icon">👨‍👩‍👧</span>
+          <h3>Linked Parents</h3>
+          <p id="parentsCount">0</p>
+        </div>
+
+        <div class="stat-card orange">
+          <span class="stat-icon">📊</span>
+          <h3>Average Age</h3>
+          <p id="averageAge">0</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 id="formTitle">Add New Player</h2>
+              <p>Register a player and link the player to a parent account.</p>
+            </div>
+          </div>
+
+          <form id="playerForm">
+            <input type="hidden" id="playerId" />
+
+            <label>Player Name</label>
+            <input type="text" id="name" placeholder="Enter player name" required />
+
+            <label>Age</label>
+            <input type="number" id="age" placeholder="Enter age" required min="5" max="25" />
+
+            <label>Parent ID</label>
+            <input type="number" id="parent_id" placeholder="Enter parent user ID" required />
+
+            <button type="submit" id="submitBtn">Add Player</button>
+            <button type="button" id="cancelBtn" class="secondary-action-btn" style="display:none;">Cancel Update</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2>Quick Guide</h2>
+              <p>How this page supports the system.</p>
+            </div>
+          </div>
+
+          <div class="summary-box">
+            <h3>Coach Access</h3>
+            <p>Coaches can create, update and delete player records from this page.</p>
+          </div>
+
+          <div class="summary-box">
+            <h3>Parent Link</h3>
+            <p>Each player is linked to a parent account using the Parent ID.</p>
+          </div>
+
+          <div class="summary-box">
+            <h3>Performance Tracking</h3>
+            <p>The View Performance button helps coaches move quickly to player records.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Player List</h2>
+            <p>Search players and manage their academy profile.</p>
+          </div>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search player by name, age or parent..." />
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Age</th>
+                <th>Position</th>
+                <th>Parent</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="playersTableBody">
+              <tr>
+                <td colspan="5">Loading players...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/players.js"></script>
+</body>
+</html>

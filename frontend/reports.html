@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-ball">⚽</div>
+        <h1>Football<br>Academy</h1>
+        <p>Coach Panel</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="coach-dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="performance.html">Performance</a>
+        <a href="reports.html" class="active">Reports</a>
+      </nav>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </aside>
+
+    <main class="performance-main">
+
+      <div class="performance-header">
+        <div>
+          <h1>Reports</h1>
+          <p>Generate and download player performance reports.</p>
+        </div>
+
+        <button class="add-record-btn" onclick="window.print()">Print Page</button>
+      </div>
+
+      <section class="performance-stats">
+        <div class="performance-stat-card">
+          <div class="stat-icon blue">📄</div>
+          <div>
+            <h3>Total Reports</h3>
+            <p id="totalReports">0</p>
+            <span>Available records</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon green">👥</div>
+          <div>
+            <h3>Total Players</h3>
+            <p id="totalPlayers">0</p>
+            <span>Registered players</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon yellow">☆</div>
+          <div>
+            <h3>Best Rating</h3>
+            <p id="bestRating">0/5</p>
+            <span>Highest performance</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon purple">◎</div>
+          <div>
+            <h3>Total Goals</h3>
+            <p id="reportGoals">0</p>
+            <span>All goals recorded</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="performance-content">
+
+        <div class="performance-form-card">
+          <h2>Report Filter</h2>
+
+          <form id="reportFilterForm">
+            <label>Player</label>
+            <select id="reportPlayerSelect">
+              <option value="">All Players</option>
+            </select>
+
+            <label>Minimum Rating</label>
+            <select id="reportRatingSelect">
+              <option value="">All Ratings</option>
+              <option value="5">5/5</option>
+              <option value="4">4/5 and above</option>
+              <option value="3">3/5 and above</option>
+              <option value="2">2/5 and above</option>
+              <option value="1">1/5 and above</option>
+            </select>
+
+            <label>Search Feedback</label>
+            <input type="text" id="reportSearchInput" placeholder="Search feedback..." />
+
+            <div class="form-actions">
+              <button type="button" class="reset-btn" onclick="resetReportFilters()">Reset</button>
+              <button type="submit" class="save-btn">Apply Filter</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="performance-table-card">
+          <div class="table-header">
+            <div>
+              <h2>Performance Report List</h2>
+              <p>Select, filter and print player performance data.</p>
+            </div>
+
+            <button class="save-btn" onclick="window.print()">Download / Print PDF</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="performance-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Player</th>
+                  <th>Date</th>
+                  <th>Attendance</th>
+                  <th>Goals</th>
+                  <th>Rating</th>
+                  <th>Feedback</th>
+                </tr>
+              </thead>
+
+              <tbody id="reportsTableBody">
+                <tr>
+                  <td colspan="7" class="empty-message">No report data found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/reports.js"></script>
+</body>
+</html>

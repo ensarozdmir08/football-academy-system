@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performance Tracking</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-ball">⚽</div>
+        <h1>Football<br>Academy</h1>
+        <p>Coach Panel</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="coach-dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="performance.html" class="active">Performance</a>
+        <a href="reports.html">Reports</a>
+      </nav>
+
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </aside>
+
+    <main class="performance-main">
+
+      <div class="performance-header">
+        <div>
+          <h1>Performance Tracking</h1>
+          <p>Record, monitor and analyse player performance data.</p>
+        </div>
+
+        <button class="add-record-btn">+ Add Performance Record</button>
+      </div>
+
+      <section class="performance-stats">
+        <div class="performance-stat-card">
+          <div class="stat-icon blue">✓</div>
+          <div>
+            <h3>Total Records</h3>
+            <p id="totalRecords">0</p>
+            <span>All performance entries</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon yellow">☆</div>
+          <div>
+            <h3>Average Rating</h3>
+            <p id="avgRating">0/5</p>
+            <span>Overall average rating</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon purple">◎</div>
+          <div>
+            <h3>Total Goals</h3>
+            <p id="totalGoals">0</p>
+            <span>Goals scored</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon green">👥</div>
+          <div>
+            <h3>Average Attendance</h3>
+            <p id="avgAttendance">0%</p>
+            <span>Average attendance</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="performance-content">
+
+        <div class="performance-form-card">
+          <h2>Add Performance Record</h2>
+
+          <form id="performanceForm">
+            <label>Player</label>
+            <select id="player_id" required>
+              <option value="">Select player</option>
+            </select>
+
+            <label>Date</label>
+            <input type="date" id="date" required />
+
+            <div class="two-inputs">
+              <div>
+                <label>Attendance (%)</label>
+                <input type="number" id="attendance" min="0" max="100" placeholder="0 - 100" required />
+              </div>
+
+              <div>
+                <label>Goals</label>
+                <input type="number" id="goals" min="0" placeholder="0" required />
+              </div>
+            </div>
+
+            <label>Rating (1-5)</label>
+            <select id="rating" required>
+              <option value="">Select rating</option>
+              <option value="1">1/5</option>
+              <option value="2">2/5</option>
+              <option value="3">3/5</option>
+              <option value="4">4/5</option>
+              <option value="5">5/5</option>
+            </select>
+
+            <label>Coach Feedback</label>
+            <textarea id="feedback" rows="5" placeholder="Write coach feedback..." required></textarea>
+
+            <div class="form-actions">
+              <button type="reset" class="reset-btn">Reset</button>
+              <button type="submit" class="save-btn">Save Performance</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="performance-table-card">
+          <div class="table-header">
+            <div>
+              <h2>Performance Records</h2>
+              <p>View all saved player performance entries.</p>
+            </div>
+
+            <input type="text" id="performanceSearch" placeholder="Search by player or feedback..." />
+          </div>
+
+          <div class="table-wrapper">
+            <table class="performance-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Player</th>
+                  <th>Date</th>
+                  <th>Attendance</th>
+                  <th>Goals</th>
+                  <th>Rating</th>
+                  <th>Feedback</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody id="performanceTableBody">
+                <tr>
+                  <td colspan="8" class="empty-message">No performance records found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/performance.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <h2>⚽ Academy</h2>
+      <a href="coach-dashboard.html" class="active">Dashboard</a>
+      <a href="players.html">Players</a>
+      <a href="performance.html">Performance</a>
+      <a href="reports.html">Reports</a>
+      <a href="login.html" onclick="logout()">Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1>Coach Dashboard</h1>
+          <p>Monitor academy performance, player progress and recent records.</p>
+        </div>
+        <div class="header-badge">
+          Coach Panel
+        </div>
+      </div>
+
+      <section class="stats-container">
+        <div class="stat-card blue">
+          <span class="stat-icon">👥</span>
+          <h3>Total Players</h3>
+          <p id="totalPlayers">0</p>
+        </div>
+
+        <div class="stat-card green">
+          <span class="stat-icon">⭐</span>
+          <h3>Average Rating</h3>
+          <p id="averageRating">0</p>
+        </div>
+
+        <div class="stat-card orange">
+          <span class="stat-icon">📅</span>
+          <h3>Average Attendance</h3>
+          <p id="averageAttendance">0%</p>
+        </div>
+
+        <div class="stat-card purple">
+          <span class="stat-icon">⚽</span>
+          <h3>Total Goals</h3>
+          <p id="totalGoals">0</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card large-card">
+          <div class="card-header">
+            <div>
+              <h2>Academy Performance Overview</h2>
+              <p>Average attendance, goals and rating comparison by player.</p>
+            </div>
+          </div>
+          <canvas id="performanceChart"></canvas>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2>Top Players</h2>
+              <p>Based on latest performance ratings.</p>
+            </div>
+          </div>
+          <div id="topPlayersList" class="top-list">
+            <p>Loading top players...</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2>Recent Activities</h2>
+              <p>Latest performance entries added by the coach.</p>
+            </div>
+          </div>
+          <div id="recentActivities" class="activity-list">
+            <p>Loading recent activities...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2>Performance Summary</h2>
+              <p>Quick academic style system summary.</p>
+            </div>
+          </div>
+
+          <div class="summary-box">
+            <h3>System Purpose</h3>
+            <p>
+              This dashboard helps coaches monitor player development using attendance,
+              goals, ratings and written feedback.
+            </p>
+          </div>
+
+          <div class="summary-box">
+            <h3>Current Status</h3>
+            <p id="summaryText">
+              Loading academy summary...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h2>Player List</h2>
+            <p>Registered players and linked parent accounts.</p>
+          </div>
+          <a href="players.html" class="small-link-btn">Manage Players</a>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Player Name</th>
+                <th>Age</th>
+                <th>Position</th>
+                <th>Parent ID</th>
+              </tr>
+            </thead>
+
+            <tbody id="playersTable">
+              <tr>
+                <td colspan="4">Loading players...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/coachDashboard.js"></script>
+</body>
+</html>

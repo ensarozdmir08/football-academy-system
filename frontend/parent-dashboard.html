@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-ball">⚽</div>
+        <h1>Football<br>Academy</h1>
+        <p>Parent Panel</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="parent-dashboard.html" class="active">My Child Progress</a>
+        <a href="login.html">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="performance-main">
+
+      <div class="performance-header">
+        <div>
+          <h1>Parent Dashboard</h1>
+          <p>View your child’s performance progress over time.</p>
+        </div>
+
+        <button id="downloadPdf" class="add-record-btn">Download PDF Report</button>
+      </div>
+
+      <section class="performance-stats">
+        <div class="performance-stat-card">
+          <div class="stat-icon blue">👤</div>
+          <div>
+            <h3>Player Name</h3>
+            <p id="playerName">Loading...</p>
+            <span>Registered child</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon green">✅</div>
+          <div>
+            <h3>Average Attendance</h3>
+            <p id="attendance">-</p>
+            <span>Training attendance</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon purple">◎</div>
+          <div>
+            <h3>Total Goals</h3>
+            <p id="goals">-</p>
+            <span>Goals recorded</span>
+          </div>
+        </div>
+
+        <div class="performance-stat-card">
+          <div class="stat-icon yellow">☆</div>
+          <div>
+            <h3>Average Rating</h3>
+            <p id="rating">-</p>
+            <span>Coach rating</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Child Information</h2>
+        <p><strong>Age:</strong> <span id="playerAge">Loading...</span></p>
+      </section>
+
+      <section class="card">
+        <h2>Performance Over Time</h2>
+        <p>This chart shows the player’s rating progress over time.</p>
+        <canvas id="progressChart"></canvas>
+      </section>
+
+      <section class="card">
+        <h2>Coach Assessment</h2>
+
+        <div class="assessment-grid">
+          <div class="assessment-box">
+            <h3>Strengths</h3>
+            <ul id="strengthsList"></ul>
+          </div>
+
+          <div class="assessment-box">
+            <h3>Areas for Improvement</h3>
+            <ul id="improvementList"></ul>
+          </div>
+        </div>
+
+        <h3>Overall Coach Feedback</h3>
+        <p id="feedback">Loading feedback...</p>
+      </section>
+
+      <section class="performance-table-card">
+        <div class="table-header">
+          <div>
+            <h2>Performance History</h2>
+            <p>Detailed record of attendance, goals, rating and feedback.</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="performance-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Attendance</th>
+                <th>Goals</th>
+                <th>Rating</th>
+                <th>Feedback</th>
+              </tr>
+            </thead>
+
+            <tbody id="performanceHistoryBody">
+              <tr>
+                <td colspan="5" class="empty-message">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/parentDashboard.js"></script>
+</body>
+</html>

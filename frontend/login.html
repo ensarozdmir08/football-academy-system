@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football Academy Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-info">
+      <h1>⚽ Football Academy</h1>
+      <h2>Performance Tracking System</h2>
+      <p>
+        A web-based system for coaches and parents to manage players,
+        track performance, view feedback, and monitor progress.
+      </p>
+
+      <div class="login-features">
+        <span>Player Management</span>
+        <span>Performance Tracking</span>
+        <span>Parent Dashboard</span>
+        <span>Reports & Statistics</span>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <h2>Login</h2>
+      <p class="login-subtitle">Enter your account details to continue.</p>
+
+      <form id="loginForm">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username" required />
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter password" required />
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p id="message"></p>
+
+      <div class="demo-accounts">
+        <p><strong>Demo Coach:</strong> coach1 / 123456</p>
+        <p><strong>Demo Parent:</strong> parent1 / 123456</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
